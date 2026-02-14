@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MiniChat Salons</title>
+    <link rel="stylesheet" href="yeah.css" />
+
+    <!-- Favicon du site -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="C:\Users\User\Desktop\sorpion.talla\not for you\assetes\logo2.png"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>💬 MiniChat Salons</h1>
+      <div id="status">Non connecté</div>
+    </header>
+
+    <div class="container">
+      <!-- LOGIN -->
+      <div class="card" id="loginCard">
+        <h3>Connexion / Inscription</h3>
+        <input id="pseudoInput" placeholder="Pseudo" />
+        <input id="passwordInput" type="password" placeholder="Mot de passe" />
+        <button id="loginBtn">Se connecter / S'inscrire</button>
+      </div>
+
+      <!-- SALONS -->
+      <div class="card hidden" id="roomCard">
+        <h3>Choisir un salon</h3>
+        <div id="roomList"></div>
+        <h4>Ou créer un nouveau salon :</h4>
+        <input id="newRoomName" placeholder="Nom du salon" />
+        <input
+          id="newRoomPassword"
+          type="password"
+          placeholder="Mot de passe du salon"
+        />
+        <button id="createRoomBtn">Créer le salon</button>
+        <button id="logoutBtn">Déconnexion</button>
+      </div>
+
+      <!-- CHAT -->
+      <div class="card hidden" id="chatCard">
+        <h3 id="roomTitle"></h3>
+        <div id="messages" class="messages"></div>
+        <input id="messageInput" placeholder="Écris un message" />
+        <label for="imageInput" class="imageUpload">
+          📷 Ajouter une image
+          <input type="file" id="imageInput" accept="image/*" />
+        </label>
+        <button id="sendBtn">Envoyer</button>
+        <button id="leaveRoomBtn">Quitter le salon</button>
+
+        <!-- Bouton admin -->
+        <button id="adminBtn" class="hidden">⚙️</button>
+
+        <!-- Popup admin -->
+        <div id="adminPopup" class="hidden">
+          <h4>Gérer les utilisateurs</h4>
+          <div id="userList"></div>
+          <button id="closePopupBtn">Fermer</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="yeah.js"></script>
+  </body>
+</html>

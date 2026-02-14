@@ -1,0 +1,205 @@
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: white;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+input,
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-family: inherit;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+button {
+  font-weight: bold;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.messages {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(31, 41, 55, 0.8);
+  border-left: 4px solid #38bdf8;
+  border-radius: 5px;
+  transition: transform 0.2s;
+}
+
+.message.user {
+  border-left-color: #2563eb; /* bleu pour soi-même */
+}
+
+.message.other {
+  border-left-color: #c084fc; /* violet clair pour les autres */
+}
+
+.message.admin {
+  border-left-color: #05e4b3ff; /*  pour admin */
+}
+
+.small {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.hidden {
+  display: none;
+}
+
+.roomItem {
+  padding: 10px;
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.roomItem:hover {
+  background: rgba(31, 41, 55, 0.8);
+}
+
+/* Suppression du bouton admin et popup CSS */
+#adminBtn,
+#adminPopup,
+.userItem,
+.userItem button {
+  display: none; /* tout ce qui concerne ban/deban/admin flottant est supprimé */
+}
+.chatImage {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  margin-top: 5px;
+  display: block;
+}
+.chatImage {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 15px;
+  margin-top: 5px;
+  display: block;
+  object-fit: cover;
+}
+.imageUpload {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background 0.2s, transform 0.2s;
+  user-select: none;
+}
+
+.imageUpload:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+}
+/* === SWIPE SUPPRESSION SALON === */
+.roomItem {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  touch-action: pan-y;
+}
+
+.roomItem::after {
+  content: "🗑️ Supprimer";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.roomItem.swiping {
+  background: crimson;
+}
+
+.roomItem.swiping::after {
+  opacity: 1;
+}
+.roomItem {
+  cursor: grab;
+}
+
+.roomItem:active {
+  cursor: grabbing;
+}
+/* === SWIPE SUPPRESSION MESSAGE === */
+.message {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  cursor: grab;
+}
+
+.message:active {
+  cursor: grabbing;
+}
+
+.message::after {
+  content: "🗑️ Supprimer";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.message.swiping {
+  background: rgba(220, 38, 38, 0.9);
+}
+
+.message.swiping::after {
+  opacity: 1;
+}
